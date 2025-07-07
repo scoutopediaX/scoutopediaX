@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أغاني كشفية</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .songs-hero {
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+        }
+        .songs-search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .songs-search-bar input[type="text"] {
+            width: 320px;
+            max-width: 90vw;
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+        .songs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto 2rem auto;
+            padding: 0 2vw;
+        }
+        .song-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        .song-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        }
+        .song-cover {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .song-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #222;
+            margin: 1rem 0 1.2rem 0;
+            text-align: center;
+        }
+        /* Popup styles */
+        .lyrics-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.45);
+            justify-content: center;
+            align-items: center;
+        }
+        .lyrics-modal.active {
+            display: flex;
+        }
+        .lyrics-content {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+            padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+            max-width: 400px;
+            width: 95vw;
+            text-align: center;
+            position: relative;
+        }
+        .lyrics-content h2 {
+            margin-bottom: 1rem;
+            color: #43a047;
+            font-size: 1.2rem;
+        }
+        .lyrics-content pre {
+            white-space: pre-wrap;
+            text-align: right;
+            direction: rtl;
+            font-family: inherit;
+            color: #333;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+        .close-lyrics {
+            position: absolute;
+            top: 0.7rem;
+            left: 0.7rem;
+            background: #eee;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #222;
+            transition: background 0.2s;
+        }
+        .close-lyrics:hover {
+            background: #e57373;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .songs-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem 1vw 2rem 1vw;
+            }
+            .song-card {
+                min-width: 0;
+                margin-bottom: 1rem;
+            }
+            .song-cover {
+                height: 160px;
+            }
+        }
+        @media (max-width: 600px) {
+            .songs-list {
+                padding: 0.5rem 0.5vw 1.5rem 0.5vw;
+            }
+            .song-card {
+                min-width: 0;
+                margin-bottom: 1.2rem;
+            }
+            .song-cover {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">Scoutopedia.X</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="camps.html">المخيمات</a></li>
+                <li><a href="methodology.html">المنهجية</a></li>
+                <li><a href="library.html">المكتبة</a></li>
+                <li><a href="ai.html">الذكاء الاصطناعي</a></li>
+                <li><a href="songs.html">أغاني</a></li>
+                <li><a href="sidebar.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="songs-hero">
+            <h1>أغاني كشفية</h1>
+            <p>مجموعة من أجمل الأغاني الكشفية للأنشطة والمعسكرات</p>
+        </section>
+        <div class="songs-search-bar">
+            <input type="text" id="songSearch" placeholder="ابحث عن أغنية...">
+        </div>
+        <section class="songs-list" id="songsList">
+            <!-- كارت أغنية 1 -->
+            <div class="song-card" data-title=" رقصة النار" data-lyrics="هيـا معشـر الكشـافين        هلمــوا مسـرعيــن
+
+            إلـى مـوقـد النـار
+            
+ و بخفــة الغــزلان           تعـالــوا يـا فتيـان
+            
+                            إلـى مجلــس النـار
+            
+ 1 هيـا يا حارس النيران       أشعـل منها العيـدان
+            
+                            لتضطرب النـــار
+            
+ لمـا ساد الكون السكون            و غفــت العيـــون
+            
+                            أشتعلـــت النـــار
+             
+            2 أورا الكشــاف نـاراً             مـن هشيـم و عـود
+            
+            أعلـى الكشــاف داراً              مـا لهـا من حـدود
+            
+            و أصعـد لهيـب النـار            و ألقـى عليهـا نورا
+            
+                 و أصعد في هذه البرارى و أصعد ثم أزداد لى نورا
+                 
+                 و اصعد ثم أزداد  نورا قفر امسي معمورا   ">
+
+
+                <div class="song-cover" style="background-image:url('https://img.youtube.com/vi/QFvK8KjvQ9o/hqdefault.jpg');"></div>
+                <div class="song-title">رقصة النار</div>
+            </div>
+            <!-- كارت أغنية 2 -->
+            <div class="song-card" data-title="نشيد الكشافة" data-lyrics="يا كشافة يا أبطال\nفي البراري والجبال\nنحن دوماً في الأمام\nنرسم المجد والسلام">
+                <div class="song-cover" style="background-image:url('https://img.youtube.com/vi/1Qw8QdQwA9A/hqdefault.jpg');"></div>
+                <div class="song-title">نشيد الكشافة</div>
+            </div>
+            <!-- كارت أغنية 3 -->
+            <div class="song-card" data-title="يا كشاف" data-lyrics="يا كشاف يا كشاف\nأنت الأمل فينا\nفي كل مكان تروح\nترفع رايتنا">
+                <div class="song-cover" style="background-image:url('https://img.youtube.com/vi/2Qw8QdQwA9B/hqdefault.jpg');"></div>
+                <div class="song-title">يا كشاف</div>
+            </div>
+            <!-- كارت أغنية 4 -->
+            <div class="song-card" data-title="تحيا الكشافة" data-lyrics="تحيا الكشافة\nفي كل مكان\nبالنشاط والمحبة\nنصنع الأمان">
+                <div class="song-cover" style="background-image:url('https://img.youtube.com/vi/3Qw8QdQwA9C/hqdefault.jpg');"></div>
+                <div class="song-title">تحيا الكشافة</div>
+            </div>
+        </section>
+        <!-- نافذة كلمات الأغنية -->
+        <div class="lyrics-modal" id="lyricsModal">
+            <div class="lyrics-content">
+                <button class="close-lyrics" id="closeLyrics">×</button>
+                <h2 id="lyricsTitle"></h2>
+                <pre id="lyricsText"></pre>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        // بحث الأغاني
+        const songSearch = document.getElementById('songSearch');
+        const songsList = document.getElementById('songsList');
+        if (songSearch && songsList) {
+            songSearch.addEventListener('input', function() {
+                const value = this.value.trim().toLowerCase();
+                const cards = songsList.querySelectorAll('.song-card');
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    if (title.includes(value)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+        // نافذة كلمات الأغنية
+        const lyricsModal = document.getElementById('lyricsModal');
+        const lyricsTitle = document.getElementById('lyricsTitle');
+        const lyricsText = document.getElementById('lyricsText');
+        const closeLyrics = document.getElementById('closeLyrics');
+        document.querySelectorAll('.song-card').forEach(card => {
+            card.addEventListener('click', function() {
+                lyricsTitle.textContent = card.getAttribute('data-title');
+                lyricsText.textContent = card.getAttribute('data-lyrics');
+                lyricsModal.classList.add('active');
+            });
+        });
+        closeLyrics.addEventListener('click', function() {
+            lyricsModal.classList.remove('active');
+        });
+        // إغلاق النافذة عند الضغط خارجها
+        lyricsModal.addEventListener('click', function(e) {
+            if (e.target === lyricsModal) {
+                lyricsModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
