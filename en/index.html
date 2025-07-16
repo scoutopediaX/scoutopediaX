@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoutopedia.X</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+    @media (max-width: 700px) {
+      .about-cards {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        gap: 1.2rem !important;
+      }
+      .about-card {
+        min-width: 220px;
+        max-width: 95vw;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about h2, .about p {
+        text-align: center;
+      }
+    }
+    .about-card {
+      min-width: 220px;
+      max-width: 270px;
+      flex: 1 1 220px;
+      box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <!-- الهامبرغر مينيو -->
+    <header>
+        <nav class="navbar">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">Scoutopedia.X</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="camps.html">Camps</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="ai.html">AI </a></li>
+                <li><a href="songs.html">Songs</a></li>
+                <li><a href="sidebar.html">Contact Us</a></li>
+                <li><button onclick="setLanguage('ar')">🇦🇪 Arabic</button></li>
+                <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- قسم الترحيب -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="badge">Scoutopedia.X</span>
+                <h1>Welcome to the World of Scouting</h1>
+                <p>We help you access the best scouting services—from outstanding camp locations to the library, methodologies, songs, and the artificial intelligence feature. Here you’ll find all the information you need in one place.</p>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Book in Library</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label"> Methodologies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label"> Campsites</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم من نحن -->
+        <section class="about" id="about">
+            <h2>Who are we?</h2>
+            <p>We are the Poseidon patrol from the tenth group, working to provide easy access to information in one place</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="icon">📍</div>
+                    <h3> Campsites Locations</h3>
+                    <p>More than 100 carefully selected camping sites</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">📖</div>
+                    <h3>Methodology </h3>
+                    <p>Methodologies of all units (coming soon)</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">AI</div>
+                    <h3>Chatbot</h3>
+                    <p>AI to answer your questions (coming soon)</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">📖</div>
+                    <h3>Library</h3>
+                    <p>Various scouting books</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم هدفنا -->
+        <section class="mission" id="mission">
+            <h2>Our Goal</h2>
+            <p>Our goal is to provide tools that help leaders and individuals access information all in one place </p>
+            <div class="mission-tags">
+                <span> Facilitating access to campsites </span>
+                <span> Facilitating access to methodologies </span>
+                <span> Facilitating access to books </span>
+                <span> Facilitating access to songs </span>
+                <span> Facilitating access to artificial intelligence </span>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

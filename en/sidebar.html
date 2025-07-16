@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact Us</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        body {
+            background: #f7f7f7;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1100px;
+            margin: 2.5rem auto 1.5rem auto;
+            padding: 0 2vw;
+            }
+
+        .image-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem; /* Margin between the two images */
+            max-width: 400px;
+            margin-left: 3rem;
+            }
+
+        .image-stack img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            }
+        .contact-form {
+            flex: 1 1 350px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+            min-width: 270px;
+        }
+        .contact-form h2 {
+            text-align: center;
+            color: #43a047;
+            margin-bottom: 1.2rem;
+        }
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #333;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            background: #fafafa;
+        }
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .form-group select {
+            cursor: pointer;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem 0;
+            background: #43a047;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #2e7d32;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2rem;
+            margin: 2.5rem 0 0.7rem 0;
+        }
+        .contact-icons a {
+            color: #222;
+            font-size: 2rem;
+            transition: color 0.2s;
+        }
+        .contact-icons a:hover {
+            color: #43a047;
+        }
+        .contact-footer {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.2rem;
+            }
+            .contact-img, .contact-form {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-container {
+                padding: 0 0.5vw;
+            }
+            .contact-form {
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+            .contact-img img {
+                max-width: 100%;
+            }
+            .form-group input, .form-group select, .form-group textarea {
+                font-size: 1rem;
+                padding: 0.8rem 0.7rem;
+            }
+            .submit-btn {
+                font-size: 1.05rem;
+                padding: 1rem 0;
+            }
+            .contact-icons {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">Scoutopedia.X</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="camps.html">Camps</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="ai.html"> AI</a></li>
+                <li><a href="songs.html">Songs</a></li>
+                <li><a href="sidebar.html">Contact Us </a></li>
+                <li><button onclick="setLanguage('ar')">🇦🇪 Arabic</button></li>
+                <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contact-container">
+        <div class="image-stack">
+            <img src="https://90years.sgwen.org/wp-content/uploads/2023/08/New_SGWEN_Dark.png" alt="sgwens logo">
+            <img src="../assets/images/326719832_5560992980695827_3704279995310753697_n.jpg" alt="Sgwen 10th Group">
+        </div>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdoqzqzq" method="POST">
+            <h2> Contact Us</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder=" Write your name..." required>
+            </div>
+            <div class="form-group">
+                <label for="group">Group</label>
+                <select id="group" name="group" required>
+                    <option value=""> Choose Group ...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="Alx1">1 Alx</option>
+                    <option value="Alx2">2 Alx</option>
+                    <option value="Alx3">3 Alx</option>
+                    <option value="Alx4">4 Alx</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                    <option value="">Choose service ...</option>
+                    <option value="فرد">Individual</option>
+                    <option value="جوال">ٌRover</option>
+                    <option value="قائد">Leader</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send</button>
+        </form>
+    </div>
+    <div class="contact-icons">
+        <a href="tel:01206528029" title="اتصل بنا"><i class="fas fa-phone"></i></a>
+        <a href="mailto:scoutopediax42@gmail.com" title="راسلنا على الإيميل"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/sgwen_x?igsh=ZGJkem9objJmZ2Fl" target="_blank" title="انستجرام"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/19YrXkrVPV/?mibextid=wwXIfr" target="_blank" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+        <a href="https://maps.app.goo.gl/FB3WHcWctdhxpNxa9?g_st=ipc" target="_blank" title="الموقع"><i class="fas fa-map-marker-alt"></i></a>
+    </div>
+    <div class="contact-footer">Scouts and Guides Wadi El Nile</div>
+    <div class="contact-footer">Raht Possiden from 10th group</div>
+
+    <script src="../assets/script.js"></script>
+    <script>
+        // رسالة نجاح بعد الإرسال
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            setTimeout(function() {
+                alert('You  message has been sent successfully! We will contact you soon.');
+            }, 100);
+        });
+</script>
+    </script>
+</body>
+</html>

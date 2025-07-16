@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoutopedia.X</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+    @media (max-width: 700px) {
+      .about-cards {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        gap: 1.2rem !important;
+      }
+      .about-card {
+        min-width: 220px;
+        max-width: 95vw;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about h2, .about p {
+        text-align: center;
+      }
+    }
+    .about-card {
+      min-width: 220px;
+      max-width: 270px;
+      flex: 1 1 220px;
+      box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <!-- الهامبرغر مينيو -->
+    <header>
+        <nav class="navbar">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">Scoutopedia.X</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="camps.html">المخيمات</a></li>
+                <li><a href="methodology.html">المنهجية</a></li>
+                <li><a href="library.html">المكتبة</a></li>
+                <li><a href="ai.html">الذكاء الاصطناعي</a></li>
+                <li><a href="songs.html">أغاني</a></li>
+                <li><a href="sidebar.html">تواصل معنا</a></li>
+                <li><button onclick="setLanguage('ar')">🇦🇪 Arabic</button></li>
+                <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- قسم الترحيب -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="badge">Scoutopedia.X</span>
+                <h1>مرحباً بكم في عالم الكشافة</h1>
+                <p>نحن نساعدك في الوصول الي أفضل الخدمات الكشفية، من مواقع المخيمات المميزة و المكتبة و المنهجيات و الاغاني و خصيةالذكاء الاصطناعي . ستجد هنا كل المعلومات التي تحتجها في مكان واحد .</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">كتاب في المكتبة</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">مناهج تدريبية</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">موقع مخيم</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم من نحن -->
+        <section class="about" id="about">
+            <h2>من نحن؟</h2>
+            <p>نحن رهط بوسيدان من المجموعةالعاشرة نعمل على توفير سهولةالوصول لمعلومات في مكان واحد.</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="icon">📍</div>
+                    <h3>مواقع المخيمات</h3>
+                    <p>أكثر من 100 موقع مخيم مختار بعناية</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">📖</div>
+                    <h3> المنهجيات </h3>
+                    <p>منهجيات كل الوحدات (coming soon)</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">AI</div>
+                    <h3>chatbot</h3>
+                    <p>الذكاء الاصطناعي للإجابة علي أسئلتك(coming soon)</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">📖</div>
+                    <h3>مكتبة</h3>
+                    <p>كتب كشفية متنوعة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم هدفنا -->
+        <section class="mission" id="mission">
+            <h2>هدفنا</h2>
+            <p>هدفنا توفير أدوات تساعد القادة و الافراد للوصول لمعلومات في مكان واحد. </p>
+            <div class="mission-tags">
+                <span> تسهيل الوصول للمعسكرات</span>
+                <span> تسهيل الوصول للمنهجيات</span>
+                <span> تسهيل الوصول للكتب</span>
+                <span> تسهيل الوصول للاغاني</span>
+                <span> تسهيل الوصول للذكاء الاصطناعي</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>
