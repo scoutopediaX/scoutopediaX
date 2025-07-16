@@ -39,6 +39,23 @@ if (campSearch && campsList) {
         if (searchResults) searchResults.textContent = count;
     });
 }
+function setLanguage(lang) {
+            if (lang === 'ar') {
+                document.getElementById('arabic-content').style.display = 'block';
+                document.getElementById('english-content').style.display = 'none';
+            } else {
+                document.getElementById('arabic-content').style.display = 'none';
+                document.getElementById('english-content').style.display = 'block';
+            }
+        }
+// Save choice
+localStorage.setItem("language", lang);
+
+// Load choice
+window.onload = function() {
+  let lang = localStorage.getItem("language") || 'ar';
+  setLanguage(lang);
+};
 
 
 
