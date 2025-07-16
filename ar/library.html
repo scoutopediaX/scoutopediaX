@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المكتبة الكشفية</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <style>
         .library-hero {
             text-align: center;
@@ -105,13 +105,15 @@
             </div>
             <div class="logo">Scoutopedia.X</div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="../index.html">الرئيسية</a></li>
                 <li><a href="camps.html">المخيمات</a></li>
                 <li><a href="methodology.html">المنهجية</a></li>
                 <li><a href="library.html">المكتبة</a></li>
                 <li><a href="ai.html">الذكاء الاصطناعي</a></li>
                 <li><a href="songs.html">أغاني</a></li>
                 <li><a href="sidebar.html">تواصل معنا</a></li>
+                <li><button onclick="setLanguage('ar')">🇦🇪 Arabic</button></li>
+                <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
             </ul>
         </nav>
     </header>
@@ -125,42 +127,42 @@
         </div>
         <section class="library-list" id="libraryList">
             <!-- كارت كتاب 1 -->
-            <div class="book-card" data-title="Wolf Cub's Handbook" onclick="window.open('wolfcubshandbook[1].pdf', '_blank')">
-            <div class="book-cover" style="background-image: url('Cover%20for%20Wolf%20Cub%27s%20Handbook.jpg');"> </div>
+            <div class="book-card" data-title="Wolf Cub's Handbook" onclick="window.open('../assets/books/wolfcubshandbook[1].pdf', '_blank')">
+            <div class="book-cover" style="background-image: url('../assets/images/Cover%20for%20Wolf%20Cub%27s%20Handbook.jpg');"> </div>
             <div class="book-title">Wolf Cub's Handbook</div>
             </div>
             <!-- كارت كتاب 2 -->
-            <div class="book-card" data-title="ألعاب الخلاء" onclick="window.open('ألعاب الخلاء.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('Screenshot 2025-04-27 225710.png');"></div>
+            <div class="book-card" data-title="ألعاب الخلاء" onclick="window.open('../assets/books/ألعاب الخلاء.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/Screenshot 2025-04-27 225710.png');"></div>
                 <div class="book-title">ألعاب الخلاء</div>
             </div>
             <!-- كارت كتاب 3 -->
-            <div class="book-card" data-title="ألعاب الكشافة" onclick="window.open('ألعاب الكشافة.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('Screenshot 2025-04-27 225734.png');"></div>
+            <div class="book-card" data-title="ألعاب الكشافة" onclick="window.open('../assets/books/ألعاب الكشافة.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/Screenshot 2025-04-27 225734.png');"></div>
                 <div class="book-title">ألعاب الكشافة</div>
             </div>
             <!-- كارت كتاب 4 -->
-            <div class="book-card" data-title="كتيب البروتكلات و المراسم" onclick="window.open('كتيب البروتكلات و المراسم.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('Screenshot 2025-07-14 233827.png');"></div>
+            <div class="book-card" data-title="كتيب البروتكلات و المراسم" onclick="window.open('../assets/books/كتيب البروتكلات و المراسم.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/Screenshot 2025-07-14 233827.png');"></div>
                 <div class="book-title">كتيب البروتكلات و المراسم</div>
             </div>
             <!-- كارت كتاب 5 -->
-             <div class="book-card" data-title="Scouting For Boys" onclick="window.open('scouting for boys.pdf.crdownload.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('image book.webp');"></div>
+             <div class="book-card" data-title="Scouting For Boys" onclick="window.open('../assets/books/scouting for boys.pdf.crdownload.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/image book.webp');"></div>
                 <div class="book-title">Scouting For Boys</div>
             </div>
             <!-- كارت كتاب 6 -->
-            <div class="book-card" data-title="Boy Scout Handbook" onclick="window.open('boy-scout-handbook-compressed_compressed.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('cover forboy scout handbook.jfif.jpg');"></div>
+            <div class="book-card" data-title="Boy Scout Handbook" onclick="window.open('../assets/books/boy-scout-handbook-compressed_compressed.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/cover forboy scout handbook.jfif.jpg');"></div>
                 <div class="book-title">Boy Scout Handbook</div>
             </div>
-            <div class="book-card" data-title="The Patrol System"onclick="window.open('patrolsystem book.pdf.crdownload.pdf', '_blank')">
-                <div class="book-cover" style="background-image:url('Screenshot 2025-07-14 234925.png');"></div>
+            <div class="book-card" data-title="The Patrol System"onclick="window.open('../assets/books/patrolsystem book.pdf.crdownload.pdf', '_blank')">
+                <div class="book-cover" style="background-image:url('../assets/images/Screenshot 2025-07-14 234925.png');"></div>
                 <div class="book-title">The Patrol System</div>
             </div>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="../assets/script.js"></script>
     <script>
         // بحث الكتب
         const bookSearch = document.getElementById('bookSearch');
