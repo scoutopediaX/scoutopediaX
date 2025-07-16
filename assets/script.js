@@ -38,24 +38,38 @@ if (campSearch && campsList) {
         const searchResults = document.getElementById('searchResults');
         if (searchResults) searchResults.textContent = count;
     });
+};
+// . Detect browser language on first visit
+if (!localStorage.getItem("language")) {
+  const browserLang = navigator.language || navigator.userLanguage;
+  const detectedLang = browserLang.startsWith("ar") ? "ar" : "en";
+  localStorage.setItem("language", detectedLang);
 }
-function setLanguage(lang) {
-            if (lang === 'ar') {
-                document.getElementById('arabic-content').style.display = 'block';
-                document.getElementById('english-content').style.display = 'none';
-            } else {
-                document.getElementById('arabic-content').style.display = 'none';
-                document.getElementById('english-content').style.display = 'block';
-            }
-        }
-// Save choice
-localStorage.setItem("language", lang);
 
-// Load choice
-window.onload = function() {
-  let lang = localStorage.getItem("language") || 'ar';
+//  2. Run on every page load
+window.onload = function () {
+  const lang = localStorage.getItem("language") || "ar";
+  document.body.className = lang === "ar" ? "arabic" : "english";
   setLanguage(lang);
 };
+
+//  3. Language switch buttons call this
+function setLanguageAndReload(lang) {
+  localStorage.setItem("language", lang);
+  document.body.className = lang === "ar" ? "arabic" : "english";
+  setLanguage(lang);
+}
+
+// 4. Display correct content blocks
+function setLanguage(lang) {
+  const arabic = document.getElementById("arabic-content");
+  const english = document.getElementById("english-content");
+
+  if (!arabic || !english) return; // prevents error if elements don't exist
+
+  arabic.style.display = lang === "ar" ? "block" : "none";
+  english.style.display = lang === "en" ? "block" : "none";
+}
 
 
 

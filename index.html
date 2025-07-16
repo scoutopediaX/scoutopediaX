@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scoutopedia.X</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <script>
+    // Detect browser language
+    const userLang = navigator.language || navigator.userLanguage;
+
+    // Check for Arabic (starts with 'ar') and redirect
+    if (userLang.startsWith('ar')) {
+        window.location.href = '../ar/index.html';
+    } else {
+        window.location.href = '../en/index.html';
+    }
+    </script>
     <style>
     @media (max-width: 700px) {
       .about-cards {
@@ -50,8 +61,8 @@
                 <li><a href="ar/ai.html">الذكاء الاصطناعي</a></li>
                 <li><a href="ar/songs.html">أغاني</a></li>
                 <li><a href="ar/sidebar.html">تواصل معنا</a></li>
-                <li><button onclick="setLanguage('ar')">🇦🇪 Arabic</button></li>
-                <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+                <li><button onclick="setLanguageAndReload('ar')">🇦🇪 Arabic</button></li>
+                <li><button onclick="setLanguageAndReload('en')">🇬🇧 English</button></li>
             </ul>
         </nav>
     </header>
