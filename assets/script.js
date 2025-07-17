@@ -46,30 +46,26 @@ if (!localStorage.getItem("language")) {
   localStorage.setItem("language", detectedLang);
 }
 
-//  2. Run on every page load
+ //  2. Run on every page load
 window.onload = function () {
   const lang = localStorage.getItem("language") || "ar";
   document.body.className = lang === "ar" ? "arabic" : "english";
-  setLanguage(lang);
+  // Removed call to setLanguage(lang);
 };
 
 //  3. Language switch buttons call this
 function setLanguageAndReload(lang) {
   localStorage.setItem("language", lang);
   document.body.className = lang === "ar" ? "arabic" : "english";
-  setLanguage(lang);
+  // Navigate to the corresponding language home page
+  if (lang === "ar") {
+    window.location.href = "../ar/index.html";
+  } else if (lang === "en") {
+    window.location.href = "../en/index.html";
+  }
 }
 
-// 4. Display correct content blocks
-function setLanguage(lang) {
-  const arabic = document.getElementById("arabic-content");
-  const english = document.getElementById("english-content");
-
-  if (!arabic || !english) return; // prevents error if elements don't exist
-
-  arabic.style.display = lang === "ar" ? "block" : "none";
-  english.style.display = lang === "en" ? "block" : "none";
-}
+// Removed setLanguage function since content blocks do not exist on the same page
 
 
 
