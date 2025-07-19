@@ -27,7 +27,9 @@ if (campSearch && campsList) {
         cards.forEach(card => {
             const title = card.querySelector('h3').textContent.toLowerCase();
             const city = card.querySelector('.camp-city').textContent.toLowerCase();
-            if (title.includes(value) || city.includes(value)) {
+            // نجمع كل نصوص camp-detail
+            const details = Array.from(card.querySelectorAll('.camp-detail')).map(e => e.textContent.toLowerCase()).join(' ');
+            if (title.includes(value) || city.includes(value) || details.includes(value)) {
                 card.style.display = '';
                 count++;
             } else {
