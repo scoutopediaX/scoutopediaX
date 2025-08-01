@@ -99,15 +99,32 @@ header {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    width: 30px;
-    height: 24px;
+    width: 35px;
+    height: 28px;
     justify-content: space-between;
+    padding: 4px;
+    background-color: #35523c;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
 }
+
+.hamburger:hover {
+    background-color: #2a422d;
+}
+
+/* Hide hamburger menu on screens wider than 900px */
+@media (min-width: 901px) {
+    .hamburger {
+        display: none;
+    }
+}
+
 .hamburger span {
     display: block;
     height: 4px;
-    background: #333;
-    border-radius: 2px;
+    background: #fff;
+    border-radius: 3px;
     transition: 0.3s;
 }
 

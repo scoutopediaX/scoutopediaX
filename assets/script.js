@@ -15,14 +15,7 @@ navLinksList.forEach(link => {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-    }
+    // Removed redundant event listener to avoid conflicts
 
     // Hero slider logic
     const slideContainer = document.querySelector('.hero-bg-slide');
