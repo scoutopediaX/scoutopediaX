@@ -1,3 +1,56 @@
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background: #f7ede3 !important; /* New background color */
+}
+header, .navbar {
+    background: #35523c !important; /* New Dark green for header/navbar */
+    color: #fff !important;
+}
+.camp-btn, .call-btn, .methodology-btn, .submit-btn {
+    background: #35523c !important; /* New Dark green for buttons */
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.camp-btn:hover, .call-btn:hover, .methodology-btn:hover, .submit-btn:hover {
+    background: #ea6d30 !important; /* New accent color on hover */
+    color: #fff !important;
+    transform: scale(1.03);
+}
+.camp-card, .about-card, .book-card, .song-card, .contact-form {
+    background: #fff !important;
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camp-card:hover, .about-card:hover, .book-card:hover, .song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(234, 109, 48, 0.2);
+}
+.camps-list, .about, .mission, .library-list, .songs-list {
+    background: transparent !important;
+    box-sizing: border-box;
+    max-width: 100vw;
+}
+.camp-card {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.camp-img {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,6 +72,7 @@ body.english {
   direction: ltr;
   text-align: left;
 }
+
 header {
     width: 100%;
     background: #fff;
@@ -39,7 +93,6 @@ header {
 .logo {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #4B4A35;
 }
 
 .hamburger {
@@ -64,7 +117,6 @@ header {
     gap: 1.5rem;
     margin: 0;
     padding: 0;
-    color: #5F6368;
 }
 
 .nav-links li a {
@@ -75,7 +127,18 @@ header {
 }
 
 .nav-links li a:hover {
-    color:#95979a;
+    color: #007bff;
+}
+
+.navbar-links a:hover {
+    color: #ea6d30 !important;
+}
+
+.navbar-links a {
+    color: #fff !important;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
 }
 
 @media (max-width: 900px) {
@@ -96,8 +159,59 @@ header {
 }
 
 .hero {
-    padding: 3rem 1rem 2rem 1rem;
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1.5s ease-in-out; /* For smooth fading */
+    filter: brightness(0.6);
+}
+
+@keyframes slide {
+    0% {
+        background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    }
+    33% {
+        background-image: url('https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    }
+    66% {
+        background-image: url('https://images.unsplash.com/photo-1525174828131-4a5e3b6d0c38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    }
+    100% {
+        background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    max-width: 800px;
+}
+.hero-btns {
+    margin-top: 1.5rem;
 }
 .hero-content .badge {
     display: inline-block;
@@ -195,12 +309,10 @@ header {
 }
 
 /* ---------- camps page styles ---------- */
-.camps-hero {
-    padding: 2.5rem 1rem 1.5rem 1rem;
+.camps-hero, .library-hero, .songs-hero, .methodology-hero, .ai-hero, .contact-hero {
+    background: #FAF4EE !important;
+    padding: 3rem 1rem 2rem 1rem;
     text-align: center;
-    background: #f5f8fa;
-    border-radius: 0 0 20px 20px;
-    margin-bottom: 1.5rem;
 }
 .camps-hero h1 {
     font-size: 2.1rem;
@@ -272,6 +384,55 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+@media (max-width: 1200px) {
+    .camps-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        padding: 1rem 1vw 2rem 1vw;
+    }
+}
+@media (max-width: 900px) {
+    .camps-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem 1vw 2rem 1vw;
+    }
+    .camp-card {
+        min-width: 0;
+        max-width: 98vw;
+        margin-bottom: 1rem;
+    }
+    .camp-img {
+        height: 160px;
+    }
+    .camp-btn {
+        font-size: 1.05rem;
+        padding: 1rem 0;
+    }
+}
+@media (max-width: 600px) {
+    .camps-list {
+        padding: 0.5rem 0.5vw 1.5rem 0.5vw;
+    }
+    .camp-card {
+        min-width: 0;
+        max-width: 99vw;
+        margin-bottom: 1.2rem;
+        border-radius: 10px;
+    }
+    .camp-img {
+        height: 120px;
+    }
+    .camp-btn {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+    }
+    .camp-info {
+        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    }
+}
+
 .camp-card {
     background: #fff;
     border-radius: 14px;
@@ -279,7 +440,11 @@ header {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 370px;
+    min-height: 420px;
+    min-width: 220px;
+    max-width: 270px;
+    flex: 1 1 220px;
+    box-sizing: border-box;
     position: relative;
     margin-bottom: 0.5rem;
 }
@@ -340,19 +505,20 @@ header {
 }
 .camp-desc {
     color: #555;
-    font-size: 0.97rem;
+    font-size: 0.89rem;
     margin: 0.3rem 0 0.2rem 0;
     min-height: 36px;
     line-height: 1.5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    word-break: break-word;
+    white-space: normal;
 }
 .camp-feature {
     color: #444;
-    font-size: 0.98rem;
+    font-size: 0.89rem;
     margin-bottom: 0.5rem;
     margin-top: 0.1rem;
+    word-break: break-word;
+    white-space: normal;
 }
 .call-btn {
     margin-top: 0.7rem;
@@ -388,19 +554,86 @@ header {
     background: #2e7d32;
 }
 
-@media (max-width: 700px) {
-    .camps-list {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1rem 1vw 2rem 1vw;
+.camp-actions {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: auto;
+}
+
+.contact-footer {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    padding: 1.2rem 0 0.5rem 0;
     }
-    .camps-hero h1 {
-        font-size: 1.3rem;
-    }
-    .camps-search-bar input[type="text"] {
-        width: 95vw;
+@media (max-width: 600px) {
+    .contact-footer {
+        font-size: 1rem;
+        padding: 1.5rem 0 0.7rem 0;
+        margin-bottom: 0.7rem;
+        word-break: break-word;
     }
 }
 
+footer {
+    background: #35523c !important; /* Match header color */
+    color: #fff !important;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
 
+.footer, footer, .footer * {
+    color: #fff !important;
+}
 
+.footer-links a:hover {
+    color: #ea6d30 !important;
+}
+
+.contact-icons a:hover {
+    color: #ea6d30 !important;
+    transform: scale(1.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #35523c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #ea6d30 !important;
+    transform: translateY(-2px);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background: #ea6d30;
+}

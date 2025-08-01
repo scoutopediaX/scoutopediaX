@@ -14,6 +14,76 @@ navLinksList.forEach(link => {
         // لا يوجد منع افتراضي هنا، الانتقال يتم فوراً
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Hero slider logic
+    const slideContainer = document.querySelector('.hero-bg-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    // =================================================================
+    // ==   لتغيير الصور، قم بتعديل الروابط في المصفوفة التالية فقط:    ==
+    // =================================================================
+    const images = [
+        'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1470&q=80', // الصورة الأولى
+        'https://images.unsplash.com/photo-1713981172271-3ac9d041ea1c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // الصورة الثانية
+        'https://images.unsplash.com/photo-1525174828131-4a5e3b6d0c38?auto=format&fit=crop&w=1470&q=80'  // الصورة الثالثة
+    ];
+    // =================================================================
+
+    let currentSlide = 0;
+
+    function setSlide(index) {
+        if (!slideContainer) return;
+        slideContainer.style.backgroundImage = `url('${images[index]}')`;
+        
+        dots.forEach(dot => dot.classList.remove('active'));
+        const activeDot = document.querySelector(`.dot[data-index='${index}']`);
+        if (activeDot) {
+            activeDot.classList.add('active');
+        }
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % images.length;
+        setSlide(currentSlide);
+    }
+
+    if (slideContainer && dots.length > 0) {
+        // Set initial slide
+        setSlide(0);
+
+        // Auto-play the slider
+        let slideInterval = setInterval(nextSlide, 7000); // 7 seconds per slide
+
+        // Handle dot clicks
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                currentSlide = index;
+                setSlide(currentSlide);
+                // Reset interval on manual navigation
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 7000);
+            });
+        });
+    }
+    
+    function getSlideImage(index) {
+        const images = [
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            'https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            'https://images.unsplash.com/photo-1525174828131-4a5e3b6d0c38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+        ];
+        return images[index];
+    }
 
 // فلترة بطاقات المخيمات حسب البحث
 const campSearch = document.getElementById('campSearch');
@@ -40,7 +110,8 @@ if (campSearch && campsList) {
         const searchResults = document.getElementById('searchResults');
         if (searchResults) searchResults.textContent = count;
     });
-};
+    }
+});
 // . Detect browser language on first visit
 if (!localStorage.getItem("language")) {
   const browserLang = navigator.language || navigator.userLanguage;
