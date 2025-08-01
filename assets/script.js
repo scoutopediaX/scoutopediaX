@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const images = [
         'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1470&q=80', // الصورة الأولى
         'https://images.unsplash.com/photo-1713981172271-3ac9d041ea1c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // الصورة الثانية
-        'https://images.unsplash.com/photo-1525174828131-4a5e3b6d0c38?auto=format&fit=crop&w=1470&q=80'  // الصورة الثالثة
+        'https://wallpapercave.com/wp/wp9164576.jpg'  // الصورة الثالثة
     ];
     // =================================================================
 
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const images = [
             'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
             'https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-            'https://images.unsplash.com/photo-1525174828131-4a5e3b6d0c38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+            'https://wallpapercave.com/wp/wp9164576.jpg'
         ];
         return images[index];
     }
