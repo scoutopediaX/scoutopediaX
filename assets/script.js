@@ -132,6 +132,22 @@ function setLanguageAndReload(lang) {
 }
 
 // Removed setLanguage function since content blocks do not exist on the same page
+  document.addEventListener('DOMContentLoaded', function() {
+    const langSelect = document.getElementById('language-select');
+    if (langSelect) {
+      // Detect language from localStorage or browser
+      let lang = localStorage.getItem('language');
+      if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        lang = browserLang.startsWith('ar') ? 'ar' : 'en';
+      }
+      langSelect.value = lang;
+
+      langSelect.addEventListener('change', function() {
+        setLanguageAndReload(this.value);
+      });
+    }
+  });
 
 
 
