@@ -109,16 +109,16 @@ header {
     }
 }
 
-/* Optimize hamburger button for mobile devices */
+/* Standard hamburger button size for all mobile devices */
 @media (max-width: 900px) {
     .hamburger {
-        width: 38px;
-        height: 30px;
-        padding: 6px;
+        width: 44px;
+        height: 36px;
+        padding: 8px;
     }
     
     .hamburger span {
-        height: 2.5px;
+        height: 3px;
     }
 }
 
@@ -213,14 +213,33 @@ header {
         padding: 1rem 1.5rem;
     }
     
+    /* Prevent page scrolling when mobile menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
+    /* Ensure mobile menu has fixed dimensions and no scrolling */
+    .nav-links {
+        min-width: 280px;
+        max-width: 280px;
+        width: 280px;
+        resize: none;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     /* Additional optimizations for medium-sized mobile devices */
     @media (max-height: 700px) {
         .nav-links {
             padding: 60px 1.2rem 0.8rem;
+            overflow-y: hidden;
         }
         
         .nav-links li {
             margin: 0.4rem 0;
+            flex-shrink: 0;
         }
         
         .nav-links li a {
@@ -240,6 +259,7 @@ header {
             right: -100%;
             box-shadow: -8px 0 25px rgba(0,0,0,0.3);
             transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
         
         body.arabic .nav-links.active {
@@ -262,7 +282,10 @@ header {
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
         backdrop-filter: blur(15px);
-        overflow-y: auto;
+        overflow: hidden;
+        justify-content: flex-start;
+        align-items: stretch;
+        box-sizing: border-box;
     }
     
     .nav-links.active {
@@ -275,6 +298,7 @@ header {
         right: -100%;
         box-shadow: -8px 0 25px rgba(0,0,0,0.3);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
     }
     
     body.arabic .nav-links.active {
@@ -286,6 +310,9 @@ header {
         width: 100%;
         margin: 0.5rem 0;
         list-style: none;
+        flex-shrink: 0;
+        max-width: 100%;
+        overflow: hidden;
     }
     
     .nav-links li a {
@@ -300,6 +327,11 @@ header {
         font-weight: 500;
         text-decoration: none;
         background: rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     
     .nav-links li a:hover {
@@ -326,6 +358,9 @@ header {
         visibility: visible !important;
         opacity: 1 !important;
         font-weight: 500 !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
     
     .nav-links .language-select:hover {
@@ -483,20 +518,21 @@ img {
     position: relative;
     z-index: 2;
     padding: 3rem;
-    background: rgba(53, 82, 60, 0.85);
+    background: rgba(53, 82, 60, 0.15);
     border-radius: 20px;
     max-width: 900px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .hero-content h1 {
     margin: 0 0 1.5rem 0;
     font-size: 3rem;
     font-weight: 700;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6);
     letter-spacing: 1px;
+    color: #ffffff;
 }
 
 .hero-content p {
@@ -504,7 +540,9 @@ img {
     margin: 0 auto 2.5rem auto;
     font-size: 1.3rem;
     line-height: 1.8;
-    opacity: 0.95;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6);
+    font-weight: 500;
 }
 
 /* ===== ENHANCED SLIDER DOTS ===== */

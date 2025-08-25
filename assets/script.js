@@ -17,6 +17,7 @@ hamburger.addEventListener('click', () => {
     // Add smooth animation classes
     if (navLinks.classList.contains('active')) {
         hamburger.style.transform = 'rotate(90deg)';
+        document.body.classList.add('menu-open');
         console.log('Mobile menu opened');
         
         // Ensure language selector is visible
@@ -28,6 +29,7 @@ hamburger.addEventListener('click', () => {
         }
     } else {
         hamburger.style.transform = 'rotate(0deg)';
+        document.body.classList.remove('menu-open');
         console.log('Mobile menu closed');
     }
 });
@@ -39,6 +41,7 @@ navLinksList.forEach(link => {
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
         hamburger.style.transform = 'rotate(0deg)';
+        document.body.classList.remove('menu-open');
     });
 });
 
@@ -311,6 +314,7 @@ document.addEventListener('keydown', (e) => {
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
         hamburger.style.transform = 'rotate(0deg)';
+        document.body.classList.remove('menu-open');
     }
     
     // Arrow keys for slider navigation
